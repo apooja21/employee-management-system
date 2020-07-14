@@ -1,0 +1,47 @@
+<app-home></app-home>
+<div class="container pt-5">
+    <h2>Employee List</h2>
+    <br />
+    <div class="form-inline">
+        <label class="mr-sm-2" for="filter">Filter by: </label>
+        <input id="filter" class="form-control form-control-sm mb-2 mr-sm-2" type="text" [(ngModel)]="termfilter">
+    </div>
+    <br />
+    <label for="count">Total Number of Employees: </label><label id="count">{{allEmployees.length}}</label>
+    <br />
+    <br />
+    <div>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Emp ID</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let employee of allEmployees | filterr: termfilter'>
+                    <td id="empID">
+                        <a [routerLink]="['/employeeDetails',employee.id]">{{employee.id}}</a>
+                    </td>
+                    <td id="name{{employee.id}}">{{employee.name}}</td>
+                    <td id="location{{employee.id}}">{{employee.location}}</td>
+                    <td id="email{{employee.id}}">{{employee.email}}</td>
+                    <td id="mobile{{employee.id}}">{{employee.mobile}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm"
+                            [routerLink]="['/editEmployee',employee.id]">Edit{{employee.id}}</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-sm"
+                            (click)="deleteEmployee(employee.id)">Delete{{employee.id}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

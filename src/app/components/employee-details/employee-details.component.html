@@ -1,0 +1,22 @@
+<app-home></app-home>
+<div class="container-sm pt-5">
+    <h2>Employee Details</h2>
+    <br />
+    <dl class="row">
+        <dt class="col-sm-3">Emp ID:</dt>
+        <dd class="col-sm-9">{{employee.id}}</dd>
+
+        <dt class="col-sm-3">Name:</dt>
+        <dd class="col-sm-9">{{employee.name}}</dd>
+
+        <dt class="col-sm-3">Location:</dt>
+        <dd class="col-sm-9">{{employee.location}}</dd>
+
+        <dt class="col-sm-3">Email:</dt>
+        <dd class="col-sm-9">{{employee.email}}</dd>
+
+        <dt class="col-sm-3">Mobile:</dt>
+        <dd class="col-sm-9">{{employee.mobile}}</dd>
+    </dl>
+    <button class="btn btn-secondary" (click)="goback()" id="back">Back</button>
+</div>
